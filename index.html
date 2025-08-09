@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario de Programación</title>
+    <!-- Tailwind CSS CDN para un estilo moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #2c3e50; /* Fondo oscuro */
+        }
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            background-color: #34495e; /* Un gris más oscuro para las tarjetas */
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+        .card-header-green {
+            background-color: #27ae60;
+        }
+        .card-header-blue {
+            background-color: #3498db;
+        }
+        .card-header-pink {
+            background-color: #e74c3c;
+        }
+        .card-header-orange {
+            background-color: #e67e22;
+        }
+        .card-header-yellow {
+            background-color: #f1c40f;
+        }
+        .card-header-purple {
+            background-color: #9b59b6;
+        }
+        .card-header-indigo {
+            background-color: #34495e;
+        }
+        .card-header-cyan {
+            background-color: #1abc9c;
+        }
+        .card-header-red {
+            background-color: #c0392b;
+        }
+
+        /* Estilo para la ventana modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #2c3e50;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+    <!-- Contenedor principal y título del glosario -->
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Glosario de Programación</h1>
+            <p class="text-xl text-gray-300">Conceptos esenciales de Python, HTML y Tkinter</p>
+        </div>
+
+        <!-- Nueva sección con las tres tarjetas principales -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Tarjeta de Python -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between border-2 border-green-500">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">Python</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Python es un lenguaje de programación de alto nivel, interpretado y multiparadigma. Es conocido por su sintaxis clara y legible, lo que lo hace ideal para principiantes y para desarrollar aplicaciones en una amplia variedad de campos, desde desarrollo web hasta inteligencia artificial.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Python
+def saludo(nombre):
+    return f"Hola, {nombre}!"
+
+print(saludo("Mundo")) # Salida: Hola, Mundo!</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Python">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta de HTML -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between border-2 border-orange-500">
+                <div class="card-header-orange rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">HTML</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        HTML (HyperText Markup Language) es el lenguaje de marcado estándar para crear y estructurar páginas web. Se compone de una serie de elementos o etiquetas que definen la estructura del contenido, como encabezados, párrafos, enlaces e imágenes.
+                    </p>
+                    <pre class="bg-gray-800 text-orange-400 p-4 rounded-lg overflow-x-auto">
+<code>&lt;!-- Ejemplo de HTML -->
+&lt;h1>Mi primera página&lt;/h1>
+&lt;p>¡Hola, esto es un párrafo!&lt;/p>
+&lt;a href="https://ejemplo.com">Ir a un sitio&lt;/a></code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="HTML">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Tkinter -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between border-2 border-blue-500">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">Tkinter</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Tkinter es la biblioteca estándar de Python para crear interfaces gráficas de usuario (GUI). Proporciona una forma sencilla y rápida de construir aplicaciones de escritorio con elementos visuales como botones, cuadros de texto y etiquetas.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Tkinter
+import tkinter as tk
+ventana = tk.Tk()
+etiqueta = tk.Label(ventana, text="Hola Tkinter!")
+etiqueta.pack()
+ventana.mainloop()</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Tkinter">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor para las tarjetas del glosario, usando un diseño de cuadrícula responsivo -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: Variable -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 1. Variable</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Una variable es un contenedor que almacena un valor o una referencia a un dato. Puedes pensar en ella como una caja con un nombre. El tipo de dato puede ser un número, un texto, una lista, etc.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Variable
+nombre = "Juan"
+edad = 30</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Variable">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Card 2: If -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 2. If</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        La sentencia `if` es una estructura de control que permite ejecutar un bloque de código solo si una condición es verdadera.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de If
+edad = 18
+if edad >= 18:
+    print("Eres mayor de edad")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="If">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Etiqueta -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-orange rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟠 3. Etiqueta</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En HTML, una etiqueta es un marcador que define el tipo de contenido que va a ser mostrado en la página. Las etiquetas se escriben entre corchetes angulares (&lt; &gt;).
+                    </p>
+                    <pre class="bg-gray-800 text-orange-400 p-4 rounded-lg overflow-x-auto">
+<code>&lt;!-- Ejemplo de Etiqueta -->
+&lt;p>Esto es un párrafo.&lt;/p>
+&lt;h1>Esto es un encabezado.&lt;/h1></code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Etiqueta">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4: Suma -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 4. Suma</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        La suma es una operación matemática que combina dos o más números para obtener su total. En la mayoría de los lenguajes de programación se representa con el símbolo "+".
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Suma
+num1 = 5
+num2 = 10
+total = num1 + num2 # total será 15</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Suma">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5: Tkinter -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 5. Tkinter</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Tkinter es la biblioteca estándar de Python para crear interfaces gráficas de usuario (GUI). Es muy útil para desarrollar aplicaciones de escritorio de forma rápida y sencilla.
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Tkinter
+import tkinter as tk
+ventana = tk.Tk()
+ventana.title("Mi App")
+ventana.mainloop()</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Tkinter">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6: Button -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 6. Button</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, un `Button` es un widget que representa un botón en la interfaz de usuario. Se utiliza para que el usuario pueda interactuar y ejecutar una acción.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Button
+import tkinter as tk
+def accion():
+    print("Botón presionado")
+btn = tk.Button(text="Haz clic", command=accion)</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Button">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 7: Else -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-pink rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔴 7. Else</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        La sentencia `else` se usa junto con `if`. El bloque de código dentro de `else` se ejecuta solo si la condición del `if` es falsa.
+                    </p>
+                    <pre class="bg-gray-800 text-pink-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Else
+edad = 16
+if edad >= 18:
+    print("Mayor de edad")
+else:
+    print("Menor de edad") # Se ejecuta</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Else">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 8: Multiplicación -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 8. Multiplicación</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        La multiplicación es una operación matemática que se utiliza para calcular el producto de dos o más números. Se representa con el símbolo "*".
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Multiplicación
+a = 4
+b = 5
+producto = a * b # producto será 20</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Multiplicación">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Card 9: GUI -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 9. GUI</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Una GUI (Graphical User Interface) es una interfaz de usuario que permite interactuar con un programa a través de elementos gráficos como ventanas, iconos y botones, en lugar de comandos de texto.
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de GUI
+# Tkinter es la biblioteca para crear GUI en Python</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="GUI">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 10: Pack -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 10. Pack</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, el método `.pack()` es un gestor de geometría que organiza los widgets en bloques antes de colocarlos en la ventana principal. Es el más simple de usar.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Pack
+etiqueta.pack(side="left") # Coloca la etiqueta a la izquierda</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Pack">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 11: Comparación -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-pink rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔴 11. Comparación</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Una operación de comparación evalúa dos valores y devuelve un resultado booleano (`True` o `False`). Se utilizan operadores como `==`, `!=`, `<`, `>` entre otros.
+                    </p>
+                    <pre class="bg-gray-800 text-pink-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Comparación
+a = 5
+b = 10
+resultado = a < b # resultado será True</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Comparación">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Card 12: Label -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 12. Label</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, un `Label` es un widget que se utiliza para mostrar texto o imágenes en la interfaz de usuario. No permite la interacción del usuario.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Label
+import tkinter as tk
+etiqueta = tk.Label(text="Hola")
+etiqueta.pack()</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Label">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 13: Función -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 13. Función</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Una función es un bloque de código reutilizable que realiza una tarea específica. Se define con la palabra clave `def` y puede aceptar parámetros y devolver un valor.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Función
+def saludar(nombre):
+    return f"Hola, {nombre}"
+
+saludo = saludar("Ana")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Función">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 14: Try-except -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 14. Try-except</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        `try-except` es una estructura de control que permite manejar errores. El código que podría fallar se coloca en el bloque `try`, y si ocurre un error, el bloque `except` lo captura y ejecuta un código alternativo.
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Try-except
+try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("Error: división por cero")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Try-except">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 15: Entry -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 15. Entry</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, un `Entry` es un widget que representa un campo de texto de una sola línea, donde el usuario puede ingresar datos.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Entry
+import tkinter as tk
+entrada = tk.Entry()
+entrada.pack()</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Entry">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Card 16: División -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 16. División</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        La división es una operación matemática que divide un número entre otro. Se representa con el símbolo `/` para la división con decimales, o `//` para la división entera.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de División
+a = 10
+b = 3
+resultado = a / b # resultado será 3.333...</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="División">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 17: Root -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 17. Root</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, `Root` se refiere a la ventana principal de una aplicación. Es el contenedor de más alto nivel que se crea al inicio del programa.
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Root
+import tkinter as tk
+root = tk.Tk() # Se crea la ventana principal</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Root">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 18: Clase -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 18. Clase</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Una clase es una plantilla o "plano" para crear objetos. Define un conjunto de atributos (variables) y métodos (funciones) que los objetos creados a partir de ella heredarán.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Clase
+class Perro:
+    def __init__(self, nombre):
+        self.nombre = nombre</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Clase">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 19: Objeto -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 19. Objeto</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Un objeto es una instancia de una clase. Es una entidad con un estado y un comportamiento definidos por la clase a la que pertenece.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Objeto
+class Perro:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+mi_perro = Perro("Fido") # mi_perro es un objeto</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Objeto">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 20: Método -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 20. Método</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        Un método es una función que está asociada a un objeto. Se define dentro de una clase y se utiliza para realizar acciones con los datos de un objeto.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Método
+class Perro:
+    def ladrar(self):
+        return "¡Guau!"
+
+mi_perro = Perro()
+mi_perro.ladrar() # Llama al método ladrar</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Método">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 21: Messagebox -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 21. Messagebox</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, `messagebox` es un módulo que proporciona ventanas emergentes predefinidas para mostrar mensajes al usuario, como información, advertencias o errores.
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Messagebox
+from tkinter import messagebox
+messagebox.showinfo("Título", "Este es un mensaje de información.")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Messagebox">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 22: Mainloop -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 22. Mainloop</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, `mainloop()` es un método que inicia el bucle principal de la aplicación, el cual se encarga de escuchar los eventos (clics, pulsaciones de teclas) y mantener la ventana abierta.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Mainloop
+import tkinter as tk
+root = tk.Tk()
+root.mainloop() # Inicia el bucle de eventos</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Mainloop">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 23: AND -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-pink rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔴 23. AND</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        El operador lógico `and` devuelve `True` si y solo si todas las condiciones que lo rodean son verdaderas. Si al menos una es falsa, devuelve `False`.
+                    </p>
+                    <pre class="bg-gray-800 text-pink-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de AND
+a = 10
+b = 20
+if a > 5 and b > 15:
+    print("Ambas condiciones son verdaderas")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="AND">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 24: OR -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-pink rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔴 24. OR</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        El operador lógico `or` devuelve `True` si al menos una de las condiciones es verdadera. Solo devuelve `False` si todas las condiciones son falsas.
+                    </p>
+                    <pre class="bg-gray-800 text-pink-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de OR
+a = 5
+b = 10
+if a > 10 or b > 5:
+    print("Al menos una condición es verdadera")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="OR">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 25: NOT -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-pink rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔴 25. NOT</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        El operador lógico `not` invierte el resultado de una condición. Si la condición es `True`, `not` la convierte en `False`, y viceversa.
+                    </p>
+                    <pre class="bg-gray-800 text-pink-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de NOT
+a = True
+if not a:
+    print("No se ejecutará")
+else:
+    print("Sí se ejecutará")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="NOT">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 26: Toplevel -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 26. Toplevel</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, `Toplevel` es una clase que se usa para crear ventanas secundarias. A diferencia de `Tk`, `Toplevel` no crea una nueva aplicación, sino que se asocia con la ventana principal (`root`).
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Toplevel
+import tkinter as tk
+root = tk.Tk()
+ventana2 = tk.Toplevel(root)</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Toplevel">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 27: Grid -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-blue rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🔵 27. Grid</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        En Tkinter, el método `.grid()` es un gestor de geometría que organiza los widgets en una tabla o cuadrícula, especificando filas y columnas para su colocación.
+                    </p>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Grid
+etiqueta.grid(row=0, column=0)
+boton.grid(row=1, column=0)</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Grid">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 28: Módulo -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 28. Módulo</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        El módulo (`%`) es un operador matemático que devuelve el resto de una división.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Módulo
+a = 10
+b = 3
+resultado = a % b # resultado será 1</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Módulo">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 29: Potencia -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-green rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟢 29. Potencia</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        La potencia es una operación matemática que eleva un número a una exponente. En Python se representa con el operador `**`.
+                    </p>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Potencia
+base = 2
+exponente = 3
+resultado = base ** exponente # resultado será 8</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Potencia">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 30: Showinfo -->
+            <div class="card rounded-xl shadow-lg p-0 flex flex-col justify-between">
+                <div class="card-header-purple rounded-t-xl p-4 text-center">
+                    <h2 class="text-2xl font-bold text-white">🟣 30. Showinfo</h2>
+                </div>
+                <div class="p-6 flex-grow text-gray-300">
+                    <p class="leading-relaxed mb-4">
+                        `showinfo` es una función del módulo `messagebox` de Tkinter que muestra una ventana emergente informativa con un título y un mensaje.
+                    </p>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded-lg overflow-x-auto">
+<code># Ejemplo de Showinfo
+from tkinter.messagebox import showinfo
+showinfo("Mensaje", "Operación completada.")</code></pre>
+                </div>
+                <div class="p-6 pt-0">
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition-colors detailed-info-button" data-term="Showinfo">
+                        Explicación Detallada
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Ventana modal para las explicaciones detalladas -->
+    <div id="infoModal" class="modal-overlay hidden">
+        <div class="modal-content text-white">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="modalTitle" class="text-3xl font-bold"></h2>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-white text-4xl leading-none">&times;</button>
+            </div>
+            <div id="modalContent" class="text-lg text-gray-300 leading-relaxed">
+                <!-- El contenido se cargará aquí desde el JS -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Script para cargar datos y manejar la interactividad -->
+    <script>
+        // Datos precargados en JSON para cada término
+        const glossaryData = {
+            "Python": {
+                "summary": "Python es un lenguaje de programación de alto nivel, interpretado y multiparadigma. Es conocido por su sintaxis clara y legible, lo que lo hace ideal para principiantes y para desarrollar aplicaciones en una amplia variedad de campos, desde desarrollo web hasta inteligencia artificial.",
+                "example": "# Ejemplo de Python\ndef saludo(nombre):\n    return f\"Hola, {nombre}!\"\n\nprint(saludo(\"Mundo\")) # Salida: Hola, Mundo!"
+            },
+            "HTML": {
+                "summary": "HTML (HyperText Markup Language) es el lenguaje de marcado estándar para crear y estructurar páginas web. Se compone de una serie de elementos o etiquetas que definen la estructura del contenido, como encabezados, párrafos, enlaces e imágenes.",
+                "example": "&lt;!-- Ejemplo de HTML -->\n&lt;h1>Mi primera página&lt;/h1>\n&lt;p>¡Hola, esto es un párrafo!&lt;/p>\n&lt;a href=\"https://ejemplo.com\">Ir a un sitio&lt;/a>"
+            },
+            "Tkinter": {
+                "summary": "Tkinter es la biblioteca estándar de Python para crear interfaces gráficas de usuario (GUI). Proporciona una forma sencilla y rápida de construir aplicaciones de escritorio con elementos visuales como botones, cuadros de texto y etiquetas.",
+                "example": "# Ejemplo de Tkinter\nimport tkinter as tk\nventana = tk.Tk()\netiqueta = tk.Label(ventana, text=\"Hola Tkinter!\")\netiqueta.pack()\nventana.mainloop()"
+            },
+            "Variable": {
+                "summary": "Una variable es un contenedor que almacena un valor o una referencia a un dato. Puedes pensar en ella como una caja con un nombre. El tipo de dato puede ser un número, un texto, una lista, etc.",
+                "example": "# Ejemplo de Variable\nnombre = \"Juan\"\nedad = 30"
+            },
+            "If": {
+                "summary": "La sentencia `if` es una estructura de control que permite ejecutar un bloque de código solo si una condición es verdadera.",
+                "example": "# Ejemplo de If\nedad = 18\nif edad >= 18:\n    print(\"Eres mayor de edad\")"
+            },
+            "Etiqueta": {
+                "summary": "En HTML, una etiqueta es un marcador que define el tipo de contenido que va a ser mostrado en la página. Las etiquetas se escriben entre corchetes angulares (&lt; &gt;).",
+                "example": "&lt;!-- Ejemplo de Etiqueta -->\n&lt;p>Esto es un párrafo.&lt;/p>\n&lt;h1>Esto es un encabezado.&lt;/h1>"
+            },
+            "Suma": {
+                "summary": "La suma es una operación matemática que combina dos o más números para obtener su total. En la mayoría de los lenguajes de programación se representa con el símbolo \"+\".",
+                "example": "# Ejemplo de Suma\nnum1 = 5\nnum2 = 10\ntotal = num1 + num2 # total será 15"
+            },
+            "Button": {
+                "summary": "En Tkinter, un `Button` es un widget que representa un botón en la interfaz de usuario. Se utiliza para que el usuario pueda interactuar y ejecutar una acción.",
+                "example": "# Ejemplo de Button\nimport tkinter as tk\ndef accion():\n    print(\"Botón presionado\")\nbtn = tk.Button(text=\"Haz clic\", command=accion)"
+            },
+            "Else": {
+                "summary": "La sentencia `else` se usa junto con `if`. El bloque de código dentro de `else` se ejecuta solo si la condición del `if` es falsa.",
+                "example": "# Ejemplo de Else\nedad = 16\nif edad >= 18:\n    print(\"Mayor de edad\")\nelse:\n    print(\"Menor de edad\") # Se ejecuta"
+            },
+            "Multiplicación": {
+                "summary": "La multiplicación es una operación matemática que se utiliza para calcular el producto de dos o más números. Se representa con el símbolo \"*\".",
+                "example": "# Ejemplo de Multiplicación\na = 4\nb = 5\nproducto = a * b # producto será 20"
+            },
+            "GUI": {
+                "summary": "Una GUI (Graphical User Interface) es una interfaz de usuario que permite interactuar con un programa a través de elementos gráficos como ventanas, iconos y botones, en lugar de comandos de texto.",
+                "example": "# Ejemplo de GUI\n# Tkinter es la biblioteca para crear GUI en Python"
+            },
+            "Pack": {
+                "summary": "En Tkinter, el método `.pack()` es un gestor de geometría que organiza los widgets en bloques antes de colocarlos en la ventana principal. Es el más simple de usar.",
+                "example": "# Ejemplo de Pack\netiqueta.pack(side=\"left\") # Coloca la etiqueta a la izquierda"
+            },
+            "Comparación": {
+                "summary": "Una operación de comparación evalúa dos valores y devuelve un resultado booleano (`True` o `False`). Se utilizan operadores como `==`, `!=`, `<`, `>` entre otros.",
+                "example": "# Ejemplo de Comparación\na = 5\nb = 10\nresultado = a < b # resultado será True"
+            },
+            "Label": {
+                "summary": "En Tkinter, un `Label` es un widget que se utiliza para mostrar texto o imágenes en la interfaz de usuario. No permite la interacción del usuario.",
+                "example": "# Ejemplo de Label\nimport tkinter as tk\netiqueta = tk.Label(text=\"Hola\")\netiqueta.pack()"
+            },
+            "Función": {
+                "summary": "Una función es un bloque de código reutilizable que realiza una tarea específica. Se define con la palabra clave `def` y puede aceptar parámetros y devolver un valor.",
+                "example": "# Ejemplo de Función\ndef saludar(nombre):\n    return f\"Hola, {nombre}\"\n\nsaludo = saludar(\"Ana\")"
+            },
+            "Try-except": {
+                "summary": "`try-except` es una estructura de control que permite manejar errores. El código que podría fallar se coloca en el bloque `try`, y si ocurre un error, el bloque `except` lo captura y ejecuta un código alternativo.",
+                "example": "# Ejemplo de Try-except\ntry:\n    resultado = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Error: división por cero\")"
+            },
+            "Entry": {
+                "summary": "En Tkinter, un `Entry` es un widget que representa un campo de texto de una sola línea, donde el usuario puede ingresar datos.",
+                "example": "# Ejemplo de Entry\nimport tkinter as tk\nentrada = tk.Entry()\nentrada.pack()"
+            },
+            "División": {
+                "summary": "La división es una operación matemática que divide un número entre otro. Se representa con el símbolo `/` para la división con decimales, o `//` para la división entera.",
+                "example": "# Ejemplo de División\na = 10\nb = 3\nresultado = a / b # resultado será 3.333..."
+            },
+            "Root": {
+                "summary": "En Tkinter, `Root` se refiere a la ventana principal de una aplicación. Es el contenedor de más alto nivel que se crea al inicio del programa.",
+                "example": "# Ejemplo de Root\nimport tkinter as tk\nroot = tk.Tk() # Se crea la ventana principal"
+            },
+            "Clase": {
+                "summary": "Una clase es una plantilla o \"plano\" para crear objetos. Define un conjunto de atributos (variables) y métodos (funciones) que los objetos creados a partir de ella heredarán.",
+                "example": "# Ejemplo de Clase\nclass Perro:\n    def __init__(self, nombre):\n        self.nombre = nombre"
+            },
+            "Objeto": {
+                "summary": "Un objeto es una instancia de una clase. Es una entidad con un estado y un comportamiento definidos por la clase a la que pertenece.",
+                "example": "# Ejemplo de Objeto\nclass Perro:\n    def __init__(self, nombre):\n        self.nombre = nombre\n\nmi_perro = Perro(\"Fido\") # mi_perro es un objeto"
+            },
+            "Método": {
+                "summary": "Un método es una función que está asociada a un objeto. Se define dentro de una clase y se utiliza para realizar acciones con los datos de un objeto.",
+                "example": `# Ejemplo de Método
+class Perro:
+    def ladrar(self):
+        return "¡Guau!"
+
+mi_perro = Perro()
+mi_perro.ladrar() # Llama al método ladrar`
+            },
+            "Messagebox": {
+                "summary": "En Tkinter, `messagebox` es un módulo que proporciona ventanas emergentes predefinidas para mostrar mensajes al usuario, como información, advertencias o errores.",
+                "example": "# Ejemplo de Messagebox\nfrom tkinter import messagebox\nmessagebox.showinfo(\"Título\", \"Este es un mensaje de información.\")"
+            },
+            "Mainloop": {
+                "summary": "En Tkinter, `mainloop()` es un método que inicia el bucle principal de la aplicación, el cual se encarga de escuchar los eventos (clics, pulsaciones de teclas) y mantener la ventana abierta.",
+                "example": "# Ejemplo de Mainloop\nimport tkinter as tk\nroot = tk.Tk()\nroot.mainloop() # Inicia el bucle de eventos"
+            },
+            "AND": {
+                "summary": "El operador lógico `and` devuelve `True` si y solo si todas las condiciones que lo rodean son verdaderas. Si al menos una es falsa, devuelve `False`.",
+                "example": "# Ejemplo de AND\na = 10\nb = 20\nif a > 5 and b > 15:\n    print(\"Ambas condiciones son verdaderas\")"
+            },
+            "OR": {
+                "summary": "El operador lógico `or` devuelve `True` si al menos una de las condiciones es verdadera. Solo devuelve `False` si todas las condiciones son falsas.",
+                "example": `# Ejemplo de OR
+a = 5
+b = 10
+if a > 10 or b > 5:
+    print("Al menos una condición es verdadera")`
+            },
+            "NOT": {
+                "summary": "El operador lógico `not` invierte el resultado de una condición. Si la condición es `True`, `not` la convierte en `False`, y viceversa.",
+                "example": "# Ejemplo de NOT\na = True\nif not a:\n    print(\"No se ejecutará\")\nelse:\n    print(\"Sí se ejecutará\")"
+            },
+            "Toplevel": {
+                "summary": "En Tkinter, `Toplevel` es una clase que se usa para crear ventanas secundarias. A diferencia de `Tk`, `Toplevel` no crea una nueva aplicación, sino que se asocia con la ventana principal (`root`).",
+                "example": "# Ejemplo de Toplevel\nimport tkinter as tk\nroot = tk.Tk()\nventana2 = tk.Toplevel(root)"
+            },
+            "Grid": {
+                "summary": "En Tkinter, el método `.grid()` es un gestor de geometría que organiza los widgets en una tabla o cuadrícula, especificando filas y columnas para su colocación.",
+                "example": "# Ejemplo de Grid\netiqueta.grid(row=0, column=0)\nboton.grid(row=1, column=0)"
+            },
+            "Módulo": {
+                "summary": "El módulo (`%`) es un operador matemático que devuelve el resto de una división.",
+                "example": "# Ejemplo de Módulo\na = 10\nb = 3\nresultado = a % b # resultado será 1"
+            },
+            "Potencia": {
+                "summary": "La potencia es una operación matemática que eleva un número a una exponente. En Python se representa con el operador `**`.",
+                "example": "# Ejemplo de Potencia\nbase = 2\nexponente = 3\nresultado = base ** exponente # resultado será 8"
+            },
+            "Showinfo": {
+                "summary": " `showinfo` es una función del módulo `messagebox` de Tkinter que muestra una ventana emergente informativa con un título y un mensaje.",
+                "example": "# Ejemplo de Showinfo\nfrom tkinter.messagebox import showinfo\nshowinfo(\"Mensaje\", \"Operación completada.\")"
+            }
+        };
+
+        // Referencias a elementos del DOM
+        const infoModal = document.getElementById('infoModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        
+        // Función para mostrar la modal con datos del glosario
+        function openModal(title) {
+            modalTitle.textContent = title;
+            const termData = glossaryData[title];
+            if (termData) {
+                modalContent.innerHTML = `<p class="mb-4">${termData.summary}</p><h3 class="text-xl font-bold mb-2">Ejemplo:</h3><pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto"><code>${termData.example}</code></pre>`;
+            } else {
+                modalContent.textContent = "No se encontró información detallada para este término.";
+            }
+
+            infoModal.classList.remove('hidden');
+            setTimeout(() => infoModal.classList.add('open'), 10);
+        }
+
+        // Función para cerrar la modal
+        function closeModal() {
+            infoModal.classList.remove('open');
+            setTimeout(() => infoModal.classList.add('hidden'), 300);
+        }
+
+        // Event listener para cerrar la modal
+        closeModalBtn.addEventListener('click', closeModal);
+        infoModal.addEventListener('click', (e) => {
+            if (e.target.id === 'infoModal') {
+                closeModal();
+            }
+        });
+
+        // Obtener todos los botones de explicación detallada
+        const detailButtons = document.querySelectorAll('.detailed-info-button');
+
+        // Asignar el evento click a cada botón
+        detailButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const term = event.target.dataset.term;
+                if (term) {
+                    openModal(term);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
